@@ -4,6 +4,9 @@ import os
 from urllib.parse import urljoin
 from duckduckgo_search import DDGS
 
+# Define a User-Agent string to mimic a browser
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+
 def search_funeral_homes(query, num_results=10):
     try:
         # Initialize the list to store URLs
@@ -21,7 +24,8 @@ def search_funeral_homes(query, num_results=10):
 
 def scrape_price_list(url):
     try:
-        response = requests.get(url)
+        headers = {'User-Agent': USER_AGENT}
+        response = requests.get(url, headers=headers)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -39,7 +43,8 @@ def scrape_price_list(url):
 
 def download_file(file_url, page_url):
     try:
-        response = requests.get(file_url)
+        headers = {'User-Agent': USER_AGENT}
+        response = requests.get(file_url, headers=headers)
         response.raise_for_status()
 
         # Ensure the downloads directory exists
@@ -63,7 +68,8 @@ def download_file(file_url, page_url):
 
 def generate_apa_reference(page_url, filename):
     try:
-        response = requests.get(page_url)
+        headers = {'User-Agent': USER_AGENT}
+        response = requests.get(page_url, headers=headers)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -85,7 +91,7 @@ def generate_apa_reference(page_url, filename):
         print(f"An unexpected error occurred while generating reference for {page_url}: {e}")
 
 def main():
-    query = "funeral general price list indianapolis"
+    query = "funeral general price list canada"
     urls = search_funeral_homes(query)
 
     for url in urls:
