@@ -22,10 +22,9 @@ def search_funeral_homes(query, num_results=10):
         print(f"Failed to retrieve search results: {e}")
         return []
 
-def scrape_price_list(url):
+def scrape_price_list(url, session):
     try:
-        headers = {'User-Agent': USER_AGENT}
-        response = requests.get(url, headers=headers)
+        response = session.get(url)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -37,14 +36,13 @@ def scrape_price_list(url):
             if 'price-list' in href.lower() or 'gpl' in href.lower():
                 # Construct full URL if necessary
                 full_url = urljoin(url, href)
-                download_file(full_url, url)
+                download_file(full_url, url, session)
     except requests.RequestException as e:
         print(f"Failed to scrape {url}: {e}")
 
-def download_file(file_url, page_url):
+def download_file(file_url, page_url, session):
     try:
-        headers = {'User-Agent': USER_AGENT}
-        response = requests.get(file_url, headers=headers)
+        response = session.get(file_url)
         response.raise_for_status()
 
         # Ensure the downloads directory exists
@@ -58,7 +56,7 @@ def download_file(file_url, page_url):
         print(f"Downloaded: {filename}")
 
         # Generate APA reference
-        generate_apa_reference(page_url, filename)
+        generate_apa_reference(page_url, filename, session)
     except requests.RequestException as e:
         print(f"Failed to download {file_url}: {e}")
     except FileNotFoundError as e:
@@ -66,10 +64,9 @@ def download_file(file_url, page_url):
     except Exception as e:
         print(f"An unexpected error occurred while downloading {file_url}: {e}")
 
-def generate_apa_reference(page_url, filename):
+def generate_apa_reference(page_url, filename, session):
     try:
-        headers = {'User-Agent': USER_AGENT}
-        response = requests.get(page_url, headers=headers)
+        response = session.get(page_url)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -94,9 +91,13 @@ def main():
     query = "funeral general price list canada"
     urls = search_funeral_homes(query)
 
+    # Create a session to persist cookies and headers
+    session = requests.Session()
+    session.headers.update({'User-Agent': USER_AGENT})
+
     for url in urls:
         print(f"Scraping {url}")
-        scrape_price_list(url)
+        scrape_price_list(url, session)
 
 if __name__ == "__main__":
     main()
