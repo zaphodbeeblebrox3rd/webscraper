@@ -63,7 +63,7 @@ The `extract_text_from_pdfs.py` script processes PDF documents to extract text a
 
 # Author
 
-This project is developed by Eric Hoy, a systems engineer with a passion for supporting social sciences research. https://github.com/zaphodbeeblebrox3rd
+This project is developed by Eric Hoy, a systems engineer and cloud developerwith a passion for supporting social sciences research. https://github.com/zaphodbeeblebrox3rd
 
 # License
 
