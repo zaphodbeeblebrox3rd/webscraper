@@ -70,11 +70,11 @@ def download_file(file_url, page_url, session, location):
         response.raise_for_status()
 
         # Ensure the downloads directory exists
-        download_dir = f'downloads/{location}'
+        download_dir = f'downloads}'
         os.makedirs(download_dir, exist_ok=True)
 
         # Extract filename from URL and save in downloads directory
-        filename = os.path.join(download_dir, file_url.split('/')[-1])
+        filename = os.path.join(location, file_url.split('/')[-1])
         with open(filename, 'wb') as file:
             file.write(response.content)
         print(f"Downloaded: {filename}")

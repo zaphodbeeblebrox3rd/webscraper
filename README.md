@@ -1,6 +1,28 @@
 # Web Scraper Project
 
-This project contains various scripts for web scraping and document processing, specifically designed to extract information from funeral service documents.
+This project contains various scripts for web scraping and document processing for research on funeral services.  It can also be as a model for scraping and parsing PDFs on the web for other fields of research.
+
+## Overview
+
+In order to work with this data, there are several steps involved. Firstly, the PDF files need to be gathered.  This would need to be done by collecting them manually and scanning them, or by scraping the websites of funeral homes.  These approaches could be combined if desired.
+
+Once the PDF files are gathered, they need to be processed to extract the text and structured data.  This is done using Google Cloud's Document AI.  The output of this is a spreadsheet with the text and structured data.  This is a slow, sequential process with a large number of files, but I felt that parallelizing the process would incur risks of incurring expenses too quickly to adjust my approach if needed.
+
+The data needs to be cleaned.  This means removing the brackets, newlines, and other characters that don't belong in the Excel file.  Also, dates and pricesneed to be formatted uniformly. This is done using the `clean_data.py` script.
+
+Once the data is cleaned, it can be used for analysis.  Some examples of analysis are provided.  One way I wanted to look at the idea was to see trends over time and show a scatter plot of median basic service prices, median embalming prices year by year.  Another scatter plot I wanted to show was basic service prices and embalming prices by state.  I was also interested to see if there was an inverse relationship between basic service prices and embalming prices, which would suggest that the funeral homes tend to place a larger consideration on the total price rather than their cost for the individual items.  This is done using the `data_analysis` scripts
+
+This project includes the following scripts:
+
+1. `funeral_scraper.py`: Scrapes the pdf data from the websites
+2. `document_extraction.py`: Extracts text and structured data from PDF documents using Google Cloud's Document AI.
+3. `extract_text_from_pdfs.py`: Extracts text from PDF documents using less sophisticated methods.
+4. `clean_data.py`: Cleans the data from the PDF documents and saves it to an Excel file.
+5. `data_analysis_basic_to_cpi.py`: Analyzes the relationship between basic service prices and the consumer price index (CPI).
+6. `data_analysis_embalming_to_cpi.py`: Analyzes the relationship between embalming prices and the consumer price index (CPI).
+7. `data_analysis_basic_to_embalming.py`: Analyzes the relationship between basic service prices and embalming prices.
+
+
 
 ## Setting Up the Environment
 
@@ -34,6 +56,9 @@ The `funeral_scraper.py` script is designed to scrape data from funeral service 
 
 **Usage**:
 - Ensure that the necessary dependencies are installed and the environment is activated.
+> This means you need to 'conda activate your_environment_name' before you try to run any of the scripts!
+< .is-info >
+
 - Run the script using Python:
 
   ```bash

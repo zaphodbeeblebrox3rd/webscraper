@@ -50,11 +50,13 @@ dependencies:
       - cachetools==5.5.2
       - click==8.1.8
       - colorama==0.4.6
+      - contourpy==1.3.1
+      - cycler==0.12.1
       - duckduckgo-search==7.3.2
       - et-xmlfile==2.0.0
+      - fonttools==4.56.0
       - google-api-core==2.24.1
       - google-auth==2.38.0
-      - google-cloud==0.34.0
       - google-cloud-core==2.4.2
       - google-cloud-documentai==3.2.0
       - google-cloud-storage==3.1.0
@@ -64,15 +66,19 @@ dependencies:
       - grpcio==1.71.0rc2
       - grpcio-status==1.71.0rc2
       - h11==0.14.0
+      - kiwisolver==1.4.8
       - lxml==5.3.1
+      - matplotlib==3.10.1
       - openpyxl==3.1.5
       - outcome==1.3.0.post0
       - packaging==24.2
+      - pillow==11.1.0
       - primp==0.12.1
       - proto-plus==1.26.0
       - protobuf==5.29.3
       - pyasn1==0.6.1
       - pyasn1-modules==0.4.1
+      - pyparsing==3.2.1
       - python-dotenv==1.0.1
       - selenium==4.28.1
       - sniffio==1.3.1
