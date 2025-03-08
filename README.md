@@ -48,6 +48,45 @@ To set up the environment for this project, you need to import the environment f
 
    Replace `your_environment_name` with the name specified in the `environment.yml` file.
 
+## Setting Up Google Cloud
+
+### Creating a free Google Cloud account and setting up billing
+Setting up a new Google Gloud account comes with $300 in free credits.  This is more than enough to run the scripts in this project.  You can sign up for a free account at [Google Cloud](https://cloud.google.com/).
+
+### Enabling the Document AI API
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/) and create a new project.
+2. Enable the Document AI API.
+3. Create a service account and download the credentials file.
+4. Set up billing for the project.
+
+### Setting Up the Google Cloud SDK
+Go to the [Google Cloud SDK](https://cloud.google.com/sdk/docs) for instructions on installing the SDK on your system.
+
+### Setting Up the Google Cloud Storage Bucket
+Go to the [Google Cloud Storage](https://cloud.google.com/storage) for instructions on setting up a storage bucket.
+
+### Training the Document AI Model
+Go to the [Document AI](https://cloud.google.com/document-ai) for instructions on training a custom model.
+
+
+## Setting up OCR
+
+### Setting up Tesseract
+
+Tesseract is a powerful OCR tool that can be used to extract text from images.  It is a part of the Google Cloud OCR API, but I burned up my free credits before got to this point.  So, I'm using it locally.
+
+1. Download the Tesseract executable from [here](https://github.com/UB-Mannheim/tesseract/wiki).
+2. Extract the files to a directory.
+3. Add the directory to your system's PATH.
+
+### Setting up poppler
+
+Poppler is a PDF library that can be used to extract text from PDF documents.  It is a part of the Google Cloud OCR API, but I burned up my free credits before got to this point.  So, I'm using it locally.
+
+1. Download the Poppler executable from [here](https://github.com/oschwartz10612/poppler-windows/releases).
+2. Extract the files to a directory.
+3. Add the directory to your system's PATH.
+
 ## Purpose and Use of Scripts
 
 ### funeral_scraper.py
