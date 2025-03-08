@@ -21,7 +21,7 @@ for filename in os.listdir(pdf_directory):
         pdf_path = os.path.join(pdf_directory, filename)
         
         # Convert PDF to images
-        images = convert_from_path(pdf_path)
+        images = convert_from_path(pdf_path, poppler_path=r'C:\Program Files\poppler-24.08.0\Library\bin')
         
         # Initialize a string to hold the text
         text_content = ''
