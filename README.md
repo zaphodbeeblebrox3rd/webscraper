@@ -4,13 +4,13 @@ This project contains various scripts for web scraping and document processing f
 
 ## Overview
 
-In order to work with this data, there are several steps involved. Firstly, the PDF files need to be gathered.  This would need to be done by collecting them manually and scanning them, or by scraping the websites of funeral homes.  These approaches could be combined if desired.
+In order to work with this data, there are several steps involved. Firstly, the PDF files need to be gathered.  This would need to be done by collecting them manually and scanning them, or by scraping the websites of s.  These approaches could be combined if desired.
 
 Once the PDF files are gathered, they need to be processed to extract the text and structured data.  This is done using Google Cloud's Document AI.  The output of this is a spreadsheet with the text and structured data.  This is a slow, sequential process with a large number of files, but I felt that parallelizing the process would incur risks of incurring expenses too quickly to adjust my approach if needed.
 
 The data needs to be cleaned.  This means removing the brackets, newlines, and other characters that don't belong in the Excel file.  Also, dates and pricesneed to be formatted uniformly. This is done using the `clean_data.py` script.
 
-Once the data is cleaned, it can be used for analysis.  Some examples of analysis are provided.  One way I wanted to look at the idea was to see trends over time and show a scatter plot of median basic service prices, median embalming prices year by year.  Another scatter plot I wanted to show was basic service prices and embalming prices by state.  I was also interested to see if there was an inverse relationship between basic service prices and embalming prices, which would suggest that the funeral homes tend to place a larger consideration on the total price rather than their cost for the individual items.  This is done using the `data_analysis` scripts
+Once the data is cleaned, it can be used for analysis.  Some examples of analysis are provided.  One way I wanted to look at the idea was to see trends over time and show a scatter plot of median basic service prices, median embalming prices year by year.  Another scatter plot I wanted to show was basic service prices and embalming prices by state.  I was also interested to see if there was an inverse relationship between basic service prices and embalming prices, which would suggest that the s tend to place a larger consideration on the total price rather than their cost for the individual items.  This is done using the `data_analysis` scripts
 
 This project includes the following scripts:
 
